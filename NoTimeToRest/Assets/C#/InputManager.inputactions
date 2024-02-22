@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "d1927e40-e030-42d4-83b4-67c51e182a71",
                     "expectedControlType": "Button",
@@ -98,7 +98,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
