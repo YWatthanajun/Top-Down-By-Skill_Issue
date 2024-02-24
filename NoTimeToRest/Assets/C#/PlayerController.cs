@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float dashSpeed;
     public float dashCooldown;
+    public Text cooldownText;
     private Vector2 move;
     private Camera mainCamera;
     private Animator animator;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
         movePlayer();
         lookAtCursor();
         dashCooldownTimer -= Time.deltaTime;
+        cooldownText.text = "Cooldown Dash : " + Mathf.Max(0, Mathf.Ceil(dashCooldownTimer)).ToString("0");
     }
 
     public void movePlayer()
