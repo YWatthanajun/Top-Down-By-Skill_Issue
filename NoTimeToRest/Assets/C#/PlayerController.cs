@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private float dashCooldownTimer;
     private bool isDashing;
+    public bool IsDashing => isDashing;
+
 
     void Start()
     {
@@ -80,6 +82,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Check if the player is not dashing
+            if (!collision.gameObject.GetComponent<PlayerController>().IsDashing)
+            {
+                Debug.Log("Hit");
+            }
+        }
+    }
+
     IEnumerator Dash()
     {
         isDashing = true;
@@ -102,4 +116,5 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         dashCooldownTimer = dashCooldown;
     }
+
 }

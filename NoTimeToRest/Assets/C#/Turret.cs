@@ -21,7 +21,7 @@ public class Turret : MonoBehaviour
     }
     void Shoot()
     {
-        int randomPattern = Random.Range(0, 4); // Randomly select a pattern from 0 to 3 (inclusive)
+        int randomPattern = Random.Range(0, 7); // Randomly select a pattern from 0 to 3 (inclusive)
 
         switch (randomPattern) //Fire the selected pattern
         {
@@ -29,14 +29,27 @@ public class Turret : MonoBehaviour
                 FireSingleShot();
                 break;
             case 1:
-                FireBurst();
+                FireSingleShot();
                 break;
             case 2:
-                FireSpread();
+                FireSingleShot();
                 break;
             case 3:
+                FireBurst();
+                break;
+            case 4:
+                FireBurst();
+                break;
+            case 5:
+                FireSpread();
+                break;
+            case 6:
+                FireSpread();
+                break;
+            case 7:
                 FireSpiral();
                 break;
+
         }
         Invoke("DestroyTurret", selfDestructDelay);
     }

@@ -23,4 +23,25 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject); // Destroy the bullet when the lifetime expires
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Check if the player is not dashing
+            if (!collision.gameObject.GetComponent<PlayerController>().IsDashing)
+            {
+                Debug.Log("Hit");
+            }
+        }
+        else if (collision.gameObject.CompareTag("Bullet"))
+        {
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }
