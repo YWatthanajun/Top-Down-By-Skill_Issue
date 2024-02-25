@@ -8,25 +8,37 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
     public float fireRate = 1f;
     public float bulletSpeed = 15f;
+    public float DelayShoot = 0.3f;
+    public float selfDestructDelay = 1.5f;
     public int burstCount = 3; // Number of bullets per burst
     public int spreadCount = 5; // Number of bullets per spread
     public int spiralCount = 4; // Number of bullets per spiral
 
-    private float fireTimer;
-
-    void Update()
+    void Start()
     {
-        fireTimer += Time.deltaTime;
+        
+        Invoke("Shoot", DelayShoot);
+    }
+    void Shoot()
+    {
+        int randomPattern = Random.Range(0, 4); // Randomly select a pattern from 0 to 3 (inclusive)
 
-        // Example: Fire different bullet patterns based on conditions
-        if (fireTimer >= fireRate)
+        switch (randomPattern) //Fire the selected pattern
         {
-            //FireSingleShot();
-            //FireBurst();
-            //FireSpread();
-            FireSpiral();
-            fireTimer = 0f;
+            case 0:
+                FireSingleShot();
+                break;
+            case 1:
+                FireBurst();
+                break;
+            case 2:
+                FireSpread();
+                break;
+            case 3:
+                FireSpiral();
+                break;
         }
+        Invoke("DestroyTurret", selfDestructDelay);
     }
 
     void FireBurst()
@@ -73,7 +85,7 @@ public class Turret : MonoBehaviour
     void FireSpiral()
     {
         float bulletAngleIncrement = 10f; // Angle increment between bullets
-        float bulletRadiusIncrement =0f; // Radius increment between bullets
+        float bulletRadiusIncrement = 0f; // Radius increment between bullets
         float bulletRadius = -30f; // Initial radius of the spiral
 
         for (int i = 0; i < spiralCount; i++)
@@ -130,5 +142,11 @@ public class Turret : MonoBehaviour
 
         // Apply the curved direction to the bullet's velocity
         rb.velocity = direction * bulletSpeed;
+    }
+
+    void DestroyTurret()
+    {
+        // Destroy the turret GameObject
+        Destroy(gameObject);
     }
 }
