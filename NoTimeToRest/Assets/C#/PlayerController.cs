@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
                 isInvulnerable = false;
             }
         }
+        else if (currentShieldHealth > 0)
+        {
+            isInShield = true;
+        }
+                
     }
 
     public void movePlayer()

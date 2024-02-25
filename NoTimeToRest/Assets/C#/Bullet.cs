@@ -42,6 +42,7 @@ public class Bullet : MonoBehaviour
                 // Damage the player directly
                 player.TakeDamage(damage);
             }
+            Destroy(gameObject);
         }
         else if (!collision.gameObject.CompareTag("Bullet"))
         {
