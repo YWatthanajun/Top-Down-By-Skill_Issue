@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int damage = 1; // Damage inflicted by the bullet
     public float lifetime = 2f; // Lifetime of the bullet in seconds
 
     private Rigidbody rb;
@@ -28,19 +29,23 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Check if the player is not dashing
-            if (!collision.gameObject.GetComponent<PlayerController>().IsDashing)
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
+            // Check if the player is in shield mode
+            if (player.IsInShield)
             {
-                Debug.Log("Hit");
+                // Damage the shield instead of the player
+                player.TakeShieldDamage(damage);
+            }
+            else
+            {
+                // Damage the player directly
+                player.TakeDamage(damage);
             }
         }
-        else if (collision.gameObject.CompareTag("Bullet"))
+        else if (!collision.gameObject.CompareTag("Bullet"))
         {
-
-        }
-        else
-        {
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy the bullet if it collides with something other than the player or another bullet
         }
 
     }

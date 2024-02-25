@@ -9,13 +9,25 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float dashSpeed;
     public float dashCooldown;
+    public int maxShieldHealth = 100;
+    public int currentShieldHealth;
+    public int currentCoin;
+    private bool isInShield = true;
+    public int maxHealth = 100;
+    public int currentHealth;
     public Text cooldownText;
+    public Text shieldHealth;
+    public Text Health;
+    public Text Coin;
     private Vector2 move;
     private Camera mainCamera;
     private Animator animator;
     private float dashCooldownTimer;
+    private float damageCooldownTimer;
     private bool isDashing;
+    private bool isInvulnerable;
     public bool IsDashing => isDashing;
+    public bool IsInShield => isInShield;
 
 
     void Start()
@@ -44,6 +56,19 @@ public class PlayerController : MonoBehaviour
         lookAtCursor();
         dashCooldownTimer -= Time.deltaTime;
         cooldownText.text = "Cooldown Dash : " + Mathf.Max(0, Mathf.Ceil(dashCooldownTimer)).ToString("0");
+        shieldHealth.text = "Current Shield : " + currentShieldHealth;
+        Health.text = "Current Health : " + currentHealth;
+        Coin.text = "Coin : " + currentCoin;
+
+        // Update damage cooldown timer
+        if (isInvulnerable)
+        {
+            damageCooldownTimer -= Time.deltaTime;
+            if (damageCooldownTimer <= 0f)
+            {
+                isInvulnerable = false;
+            }
+        }
     }
 
     public void movePlayer()
@@ -82,18 +107,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Check if the player is not dashing
-            if (!collision.gameObject.GetComponent<PlayerController>().IsDashing)
-            {
-                Debug.Log("Hit");
-            }
-        }
-    }
-
     IEnumerator Dash()
     {
         isDashing = true;
@@ -117,4 +130,47 @@ public class PlayerController : MonoBehaviour
         dashCooldownTimer = dashCooldown;
     }
 
+    public void TakeShieldDamage(int damage)
+    {
+        if (!isInvulnerable)
+        {
+            if (isInShield)
+            {
+                currentShieldHealth -= damage;
+                if (currentShieldHealth <= 0)
+                {
+                    BreakShield();
+                }
+                isInvulnerable = true;
+                damageCooldownTimer = 1.5f;
+            }
+        }
+    }
+    public void ActivateShield()
+    {
+        isInShield = true;
+        currentShieldHealth = maxShieldHealth;
+        // TODO: Activate shield visual effect or animation
+    }
+
+    // Add this method to break the shield
+    private void BreakShield()
+    {
+        isInShield = false;
+        // TODO: Play shield break effect or animation
+        // You can also implement cooldown or other mechanics here
+    }
+    public void TakeDamage(int damage)
+    {
+        if (!isInvulnerable)
+        {
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                Debug.Log("Death");
+            }
+            isInvulnerable = true;
+            damageCooldownTimer = 1.5f;
+        }
+    }
 }

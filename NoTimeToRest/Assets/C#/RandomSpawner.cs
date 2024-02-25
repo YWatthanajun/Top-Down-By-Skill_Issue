@@ -7,6 +7,7 @@ public class RandomSpawner : MonoBehaviour
     public GameObject prefabToSpawn;
     public float spawnRadius;
     public int numberOfPrefabsToSpawn;
+    public float delayStart = 2f;
 
     private Transform playerTransform;
 
@@ -17,6 +18,11 @@ public class RandomSpawner : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         // Start the spawning coroutine
+        Invoke("StartSpawn", delayStart);
+    }
+
+    void StartSpawn()
+    {
         StartCoroutine(SpawnPrefabsRepeatedly());
     }
 
