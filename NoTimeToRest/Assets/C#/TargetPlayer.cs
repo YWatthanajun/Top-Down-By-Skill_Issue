@@ -8,6 +8,12 @@ public class TargetPlayer : MonoBehaviour
     public Transform player;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     void Update()
     {
         // Check if player reference is not null
