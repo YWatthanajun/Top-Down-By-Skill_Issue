@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +31,11 @@ public class PlayerController : MonoBehaviour
     public bool IsDashing => isDashing;
     public bool IsInShield => isInShield;
 
+    public GameObject gameOverPanel;
+    public GameObject gameUIPanel;
+    public GameObject winScreen;
+
+    
 
     void Start()
     {
@@ -59,6 +66,13 @@ public class PlayerController : MonoBehaviour
         shieldHealth.text = "Current Shield : " + currentShieldHealth;
         Health.text = "Current Health : " + currentHealth;
         Coin.text = "Coin : " + currentCoin;
+
+        if (currentCoin >= 50)
+        {
+            winScreen.SetActive(true);
+            gameUIPanel.SetActive(false);
+            Time.timeScale = 0f;
+        }
 
         // Update damage cooldown timer
         if (isInvulnerable)
@@ -173,9 +187,21 @@ public class PlayerController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Debug.Log("Death");
+                GameOver();
             }
             isInvulnerable = true;
             damageCooldownTimer = 1.5f;
         }
+    }
+
+    public void GameOver()
+    {
+        // Display the game over panel
+        gameOverPanel.SetActive(true);
+        gameUIPanel.SetActive(false);
+        // Stop time
+        Time.timeScale = 0f;
+
+        // Optionally, you can also add code to save the game progress, show the final score, or restart the game
     }
 }
