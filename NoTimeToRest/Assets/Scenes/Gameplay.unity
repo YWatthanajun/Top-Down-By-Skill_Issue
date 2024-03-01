@@ -9158,6 +9158,7 @@ MonoBehaviour:
   - {fileID: 3669257500895490330, guid: b4cb03d32b4d0de46916899adf99232f, type: 3}
   - {fileID: 474246351295331839, guid: ee4121c818e5a2142be5cc50b554f8e7, type: 3}
   - {fileID: 15720025554455407, guid: 83be9f79ee6ba524a8312ed0aac5023a, type: 3}
+  - {fileID: 4861212400193889997, guid: 186d21f524b1acb4d87e81141aba208c, type: 3}
   spawnRadius: 15
   numberOfPrefabsToSpawn: 30
   delayStart: 6
