@@ -80,13 +80,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2396339367991266885, guid: a309db1a2444284499708d7ba6155067, type: 3}
   firePoint: {fileID: 1502310218255734234}
-  fireRate: 3
+  fireRate: 0.05
   bulletSpeed: 10
-  DelayShoot: 0.3
-  selfDestructDelay: 2
-  burstCount: 3
-  spreadCount: 5
-  spiralCount: 30
+  delayShoot: 0.3
+  selfDestructDelay: 1.5
+  bulletCount: 20
+  rotationAngle: 20
 --- !u!114 &1725026662696963258
 MonoBehaviour:
   m_ObjectHideFlags: 0

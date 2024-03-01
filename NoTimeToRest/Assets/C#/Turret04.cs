@@ -17,7 +17,6 @@ public class Turret04 : MonoBehaviour
         Invoke("Shoot", DelayShoot);
     }
 
-
     void Shoot()
     {
         FireSingleShot();
