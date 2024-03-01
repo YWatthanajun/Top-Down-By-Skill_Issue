@@ -16,7 +16,6 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
-        
         Invoke("Shoot", DelayShoot);
     }
     void Shoot()
