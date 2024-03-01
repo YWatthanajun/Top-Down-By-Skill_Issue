@@ -7,12 +7,10 @@ public class Bullet : MonoBehaviour
     public int damage = 1; // Damage inflicted by the bullet
     public float lifetime = 2f; // Lifetime of the bullet in seconds
 
-    private Rigidbody rb;
     private float lifeTimer;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         lifeTimer = lifetime;
     }
 
@@ -25,11 +23,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            PlayerController player = other.GetComponent<PlayerController>();
 
             // Check if the player is in shield mode
             if (player.IsInShield)
@@ -44,10 +42,9 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        else if (!collision.gameObject.CompareTag("Bullet"))
+        else if (!other.CompareTag("Bullet"))
         {
             Destroy(gameObject); // Destroy the bullet if it collides with something other than the player or another bullet
         }
-
     }
 }

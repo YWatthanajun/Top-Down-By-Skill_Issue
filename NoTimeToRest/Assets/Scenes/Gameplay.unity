@@ -1530,7 +1530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960.3, y: 541.5}
+  m_AnchoredPosition: {x: 960.2999, y: 541.5}
   m_SizeDelta: {x: 1093, y: 545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343997201
@@ -2252,7 +2252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960.3, y: 541.5}
+  m_AnchoredPosition: {x: 960.2999, y: 541.5}
   m_SizeDelta: {x: 1093, y: 545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511546763
@@ -7517,9 +7517,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   dashSpeed: 5
-  dashCooldown: 3
+  dashCooldown: 0.3
   maxShieldHealth: 100
-  currentShieldHealth: 2
+  currentShieldHealth: 5
   currentCoin: 0
   maxHealth: 100
   currentHealth: 3
@@ -9159,11 +9159,12 @@ MonoBehaviour:
   - {fileID: 474246351295331839, guid: ee4121c818e5a2142be5cc50b554f8e7, type: 3}
   - {fileID: 15720025554455407, guid: 83be9f79ee6ba524a8312ed0aac5023a, type: 3}
   spawnRadius: 15
-  numberOfPrefabsToSpawn: 5
+  numberOfPrefabsToSpawn: 30
   delayStart: 6
-  delaySpawn: 3
+  delaySpawn: 4
+  delayBetweenTurrets: 0.25
   position_x: 6
-  position_z: 2
+  position_z: 4
   minimumDistanceBetweenSpawns: 2
 --- !u!4 &2067104672
 Transform:
@@ -9187,7 +9188,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067104670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21ac96aa97b8922408e14ab9c28036cf, type: 3}
   m_Name: 
@@ -9204,7 +9205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067104670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2517b17b2b7c6f9449dfdcad82689e4d, type: 3}
   m_Name: 

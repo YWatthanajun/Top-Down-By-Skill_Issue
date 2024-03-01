@@ -9,6 +9,7 @@ public class RandomSpawner : MonoBehaviour
     public int numberOfPrefabsToSpawn;
     public float delayStart = 2f;
     public float delaySpawn = 3f;
+    public float delayBetweenTurrets = 0.2f;
     public int position_x = 6;
     public int position_z = 2;
     public float minimumDistanceBetweenSpawns = 2f; // Minimum distance between each spawn
@@ -38,14 +39,14 @@ public class RandomSpawner : MonoBehaviour
         while (true)
         {
             // Spawn the prefabs
-            SpawnPrefabs();
+            StartCoroutine(SpawnPrefabs());
 
             // Wait for three seconds before spawning again
             yield return new WaitForSeconds(delaySpawn);
         }
     }
 
-    void SpawnPrefabs()
+    IEnumerator SpawnPrefabs()
     {
         // Loop to spawn multiple prefabs
         for (int i = 0; i < numberOfPrefabsToSpawn; i++)
@@ -93,6 +94,8 @@ public class RandomSpawner : MonoBehaviour
             {
                 Debug.LogWarning("Could not find a valid position for new spawn after 100 attempts.");
             }
+
+            yield return new WaitForSeconds(delayBetweenTurrets);
         }
     }
 }
