@@ -53,7 +53,7 @@ MonoBehaviour:
   fireRate: 1
   bulletSpeed: 15
   DelayShoot: 0.3
-  selfDestructDelay: 1.5
+  selfDestructDelay: 2.6
   bulletCount: 5
 --- !u!114 &2552320676543178161
 MonoBehaviour:

@@ -7519,7 +7519,7 @@ MonoBehaviour:
   dashSpeed: 5
   dashCooldown: 3
   maxShieldHealth: 100
-  currentShieldHealth: 100
+  currentShieldHealth: 2
   currentCoin: 0
   maxHealth: 100
   currentHealth: 3
