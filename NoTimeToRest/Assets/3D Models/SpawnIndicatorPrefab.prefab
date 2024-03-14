@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5459493668988756892}
   - component: {fileID: 8635875559524716029}
   - component: {fileID: 7095888329647876679}
+  - component: {fileID: 9082268463621285801}
   m_Layer: 0
   m_Name: SpawnIndicatorPrefab
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.1245928, y: 4.5574856, z: -1.1648014}
-  m_LocalScale: {x: 1.1612034, y: 0.019845208, z: 1.1612034}
+  m_LocalScale: {x: 0.0527256, y: 0.0009010915, z: 0.0527256}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &9082268463621285801
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442076086559184091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3146072fd2316914d99cd625e7cc0948, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
