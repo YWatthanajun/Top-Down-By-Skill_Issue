@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
         dashCooldownTimer = dashCooldown;
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -162,6 +163,7 @@ public class PlayerController : MonoBehaviour
                 }
                 isInvulnerable = true;
                 damageCooldownTimer = 1.5f;
+                StartCoroutine(BlinkPlayer());
             }
         }
     }
@@ -191,6 +193,8 @@ public class PlayerController : MonoBehaviour
             }
             isInvulnerable = true;
             damageCooldownTimer = 1.5f;
+            StartCoroutine(BlinkPlayer());
+
         }
     }
 
@@ -203,5 +207,19 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0f;
 
         // Optionally, you can also add code to save the game progress, show the final score, or restart the game
+    }
+
+    IEnumerator BlinkPlayer()
+    {
+        for (int i = 0; i < 15; i++) // Increase the number of iterations to 15 for a total of 1.5 seconds
+        {
+            // Set the game object's scale to zero to make it disappear
+            this.transform.localScale = new Vector3(0, 0, 0);
+            yield return new WaitForSeconds(0.1f);
+
+            // Set the game object's scale back to its original value to make it reappear
+            this.transform.localScale = new Vector3(1, 1, 1);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

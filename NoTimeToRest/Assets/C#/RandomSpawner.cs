@@ -13,6 +13,8 @@ public class RandomSpawner : MonoBehaviour
     public int position_x = 6;
     public int position_z = 2;
     public float minimumDistanceBetweenSpawns = 2f; // Minimum distance between each spawn
+    public GameObject alertIndicatorPrefab;
+    public float alertIndicatorDuration = 3f;
 
 
     private Transform playerTransform;
@@ -85,10 +87,20 @@ public class RandomSpawner : MonoBehaviour
 
             if (isPositionValid)
             {
+                // Spawn the alert indicator
+                GameObject alertIndicator = Instantiate(alertIndicatorPrefab, randomSpawnPosition, Quaternion.identity);
+                alertIndicator.SetActive(true);
+
+                // Wait for the alert indicator duration
+                yield return new WaitForSeconds(alertIndicatorDuration);
+
                 // Randomly select one of the prefabs to spawn
                 GameObject selectedPrefab = prefabsToSpawn[Random.Range(0, prefabsToSpawn.Length)];
                 Instantiate(selectedPrefab, randomSpawnPosition, Quaternion.identity);
                 spawnedPositions.Add(randomSpawnPosition); // Keep track of the spawn position
+
+                // Disable the alert indicator
+                alertIndicator.SetActive(false);
             }
             else
             {
