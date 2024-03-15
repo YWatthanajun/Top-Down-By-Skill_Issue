@@ -113,8 +113,8 @@ public class PlayerController : MonoBehaviour
 
         // Update player position with constraints
         Vector3 newPosition = transform.position + movement * speed * Time.deltaTime;
-        newPosition.x = Mathf.Clamp(newPosition.x, -300f, 300f); // X-axis constraints
-        newPosition.z = Mathf.Clamp(newPosition.z, -300f, 300f); // Z-axis constraints
+        newPosition.x = Mathf.Clamp(newPosition.x, -199f, 199f); // X-axis constraints
+        newPosition.z = Mathf.Clamp(newPosition.z, -199f, 199f); // Z-axis constraints
 
         // Apply the constrained position
         transform.position = newPosition;
@@ -150,8 +150,8 @@ public class PlayerController : MonoBehaviour
         Vector3 startPosition = transform.position;
         Vector3 dashDirection = new Vector3(move.x, 0f, move.y);
         Vector3 targetPosition = startPosition + dashDirection * dashSpeed;
-        targetPosition.x = Mathf.Clamp(targetPosition.x, -300f, 300f); // X-axis constraints
-        targetPosition.z = Mathf.Clamp(targetPosition.z, -300f, 300f); // Z-axis constraints
+        targetPosition.x = Mathf.Clamp(targetPosition.x, -199f, 199f); // X-axis constraints
+        targetPosition.z = Mathf.Clamp(targetPosition.z, -199f, 199f); // Z-axis constraints
 
         while (Time.time < startTime + dashTime)
         {

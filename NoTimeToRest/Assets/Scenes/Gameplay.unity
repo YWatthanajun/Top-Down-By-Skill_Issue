@@ -13348,7 +13348,7 @@ MonoBehaviour:
   dashSpeed: 5
   dashCooldown: 0.3
   maxShieldHealth: 100
-  winCollectCoin: 30
+  winCollectCoin: 50
   currentShieldHealth: 5
   currentCoin: 0
   maxHealth: 100
@@ -15191,9 +15191,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 5107686810080731156, guid: 767c716d9dcb15f4ba029994d4cc2fab, type: 3}
-  spawnAreaSize: {x: 280, y: 0, z: 280}
+  spawnAreaSize: {x: 399, y: 0, z: 399}
   maxNumberOfPrefabsToSpawn: 100
-  spawnCooldown: 1
+  spawnCooldown: 1.2
   currentSpawnCount: 0
 --- !u!114 &2067104674
 MonoBehaviour:
@@ -15208,11 +15208,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 8914970154011045729, guid: 655c8014eb8bb1446bb89c286d217adc, type: 3}
-  spawnAreaSize: {x: 280, y: 0, z: 280}
-  maxNumberOfPrefabsToSpawn: 1000
-  spawnCooldown: 10
+  spawnAreaSize: {x: 399, y: 0, z: 399}
+  maxNumberOfPrefabsToSpawn: 180
+  spawnCooldown: 3600
   currentSpawnCount: 0
-  coinsToSpawnAtOnce: 50
+  coinsToSpawnAtOnce: 180
 --- !u!1001 &2068682289
 PrefabInstance:
   m_ObjectHideFlags: 0
