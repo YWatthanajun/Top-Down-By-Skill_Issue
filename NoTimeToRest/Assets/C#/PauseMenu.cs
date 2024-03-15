@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused = false;
     public AudioSource audioSource;
+    public AudioSource audioBackgroundSource;
 
     void Update()
     {
@@ -26,9 +27,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; // Resume game time
         isPaused = false;
         // Unpause the audio source
-        if (audioSource != null)
+        if (audioBackgroundSource != null)
         {
             audioSource.UnPause();
+            audioBackgroundSource.UnPause();
         }
     }
 
@@ -38,9 +40,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; // Pause game time
         isPaused = true;
         // Pause the audio source
-        if (audioSource != null)
+        if (audioBackgroundSource != null)
         {
             audioSource.Pause();
+            audioBackgroundSource.Pause();
         }
     }
 }

@@ -37,8 +37,8 @@ public class PlayerController : MonoBehaviour
     public GameObject winScreen;
 
     public AudioSource audioSource;
-
-
+    public AudioSource audioBackgroundSource;
+    private int soundwin = 0;
 
     void Start()
     {
@@ -75,9 +75,15 @@ public class PlayerController : MonoBehaviour
         if (currentCoin >= winCollectCoin)
         {
             // Pause the audio source
-            if (audioSource != null)
+            if (audioBackgroundSource != null)
             {
                 audioSource.Pause();
+                audioBackgroundSource.Pause();
+            }
+            if (soundwin == 0)
+            {
+                soundwin++;
+                SoundManager2.instance.audioSoundSource.PlayOneShot(SoundManager2.instance.winSound);
             }
             winScreen.SetActive(true);
             gameUIPanel.SetActive(false);
@@ -200,11 +206,6 @@ public class PlayerController : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
-                if (audioSource != null)
-                {
-                    audioSource.Pause();
-                }
-                Debug.Log("Death");
                 GameOver();
             }
             isInvulnerable = true;
@@ -216,6 +217,13 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
+        if (audioBackgroundSource != null)
+        {
+            audioSource.Pause();
+            audioBackgroundSource.Pause();
+        }
+        Debug.Log("Death");
+        SoundManager2.instance.audioSoundSource.PlayOneShot(SoundManager2.instance.overSound);
         // Display the game over panel
         gameOverPanel.SetActive(true);
         gameUIPanel.SetActive(false);
