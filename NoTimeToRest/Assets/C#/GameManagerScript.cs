@@ -10,6 +10,10 @@ public class GameManagerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
+    public void Retry()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
 
     public void ReturnMainMenu()
     {

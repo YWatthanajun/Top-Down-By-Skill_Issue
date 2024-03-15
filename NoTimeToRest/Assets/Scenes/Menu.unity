@@ -5161,8 +5161,8 @@ RectTransform:
   m_GameObject: {fileID: 1071447667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 21.02, y: 21.02, z: 21.02}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8.353621, y: 8.353621, z: 8.353621}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 692405068}
   - {fileID: 2045116851}
@@ -8043,9 +8043,9 @@ RectTransform:
   - {fileID: 1071447668}
   m_Father: {fileID: 321062862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -225}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1998750427
@@ -8491,7 +8491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect 50 Coin To Win
+  m_text: Collect 30 Coin To Win
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

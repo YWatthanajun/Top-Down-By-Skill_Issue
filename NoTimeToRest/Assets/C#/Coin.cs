@@ -10,10 +10,10 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SoundManager.instance.coinSource.PlayOneShot(SoundManager.instance.coinSound);
             PlayerController player = other.GetComponent<PlayerController>();
             player.currentCoin += addCoin;
-            // TODO: Play shield pickup effect or animation
-            Destroy(gameObject); // Destroy the shield item after collection
+            Destroy(gameObject); // Destroy the coin item after collection
         }
     }
 }

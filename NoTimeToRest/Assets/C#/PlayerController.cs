@@ -36,14 +36,18 @@ public class PlayerController : MonoBehaviour
     public GameObject gameUIPanel;
     public GameObject winScreen;
 
-    
+    public AudioClip collectSound;
+    private AudioSource audioSource;
+
+
 
     void Start()
     {
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
         dashCooldownTimer = dashCooldown;
-        
+        Time.timeScale = 1f;
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
