@@ -10,6 +10,7 @@ public class ShieldItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SoundManager.instance.audioSoundSource.PlayOneShot(SoundManager.instance.shieldSound);
             PlayerController player = other.GetComponent<PlayerController>();
             player.currentShieldHealth += shieldHealthToAdd;
             // TODO: Play shield pickup effect or animation

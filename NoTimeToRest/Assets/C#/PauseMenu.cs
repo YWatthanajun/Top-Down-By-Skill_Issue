@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     private bool isPaused = false;
+    public AudioSource audioSource;
 
     void Update()
     {
@@ -24,6 +25,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // Resume game time
         isPaused = false;
+        // Unpause the audio source
+        if (audioSource != null)
+        {
+            audioSource.UnPause();
+        }
     }
 
     void Pause()
@@ -31,17 +37,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // Pause game time
         isPaused = true;
-    }
-
-    public void Restart()
-    {
-        // Add code to restart the game (reload scene, reset variables, etc.)
-        // Example: SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void QuitGame()
-    {
-        // Add code to quit the game (exit application)
-        // Example: Application.Quit();
+        // Pause the audio source
+        if (audioSource != null)
+        {
+            audioSource.Pause();
+        }
     }
 }

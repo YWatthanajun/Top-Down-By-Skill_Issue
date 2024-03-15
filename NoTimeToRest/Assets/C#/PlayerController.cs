@@ -36,8 +36,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gameUIPanel;
     public GameObject winScreen;
 
-    public AudioClip collectSound;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
 
 
@@ -75,6 +74,11 @@ public class PlayerController : MonoBehaviour
 
         if (currentCoin >= winCollectCoin)
         {
+            // Pause the audio source
+            if (audioSource != null)
+            {
+                audioSource.Pause();
+            }
             winScreen.SetActive(true);
             gameUIPanel.SetActive(false);
             Time.timeScale = 0f;
@@ -147,6 +151,7 @@ public class PlayerController : MonoBehaviour
         {
             float t = (Time.time - startTime) / dashTime;
             transform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            SoundManager.instance.audioSoundSource.PlayOneShot(SoundManager.instance.DashSound);
             yield return null;
         }
 
@@ -161,6 +166,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isInShield)
             {
+                SoundManager.instance.audioSoundSource.PlayOneShot(SoundManager.instance.breakShieldSound);
                 currentShieldHealth -= damage;
                 if (currentShieldHealth <= 0)
                 {
@@ -190,9 +196,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!isInvulnerable)
         {
+            SoundManager.instance.audioSoundSource.PlayOneShot(SoundManager.instance.damageSound);
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
+                if (audioSource != null)
+                {
+                    audioSource.Pause();
+                }
                 Debug.Log("Death");
                 GameOver();
             }

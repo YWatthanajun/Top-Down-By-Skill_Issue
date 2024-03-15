@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SoundManager.instance.coinSource.PlayOneShot(SoundManager.instance.coinSound);
+            SoundManager.instance.audioSoundSource.PlayOneShot(SoundManager.instance.coinSound);
             PlayerController player = other.GetComponent<PlayerController>();
             player.currentCoin += addCoin;
             Destroy(gameObject); // Destroy the coin item after collection

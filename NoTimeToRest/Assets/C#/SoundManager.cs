@@ -5,8 +5,12 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    public AudioSource coinSource;
+    public AudioSource audioSoundSource;
     public AudioClip coinSound;
+    public AudioClip shieldSound;
+    public AudioClip damageSound;
+    public AudioClip breakShieldSound;
+    public AudioClip DashSound;
     private void Awake()
     {
         instance = this;
@@ -15,7 +19,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coinSource = GetComponent<AudioSource>();
+        audioSoundSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
