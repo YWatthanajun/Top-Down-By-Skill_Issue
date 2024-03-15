@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed;
     public float dashCooldown;
     public int maxShieldHealth = 100;
+    public int winCollectCoin = 50;
     public int currentShieldHealth;
     public int currentCoin;
     private bool isInShield = true;
@@ -66,9 +67,9 @@ public class PlayerController : MonoBehaviour
         cooldownText.text = "Cooldown Dash : " + Mathf.Max(0, Mathf.Ceil(dashCooldownTimer)).ToString("0");
         shieldHealth.text = "Current Shield : " + currentShieldHealth;
         Health.text = "Current Health : " + currentHealth;
-        Coin.text = "Coin : " + currentCoin;
+        Coin.text = "Coin : " + currentCoin + "  /  " + winCollectCoin;
 
-        if (currentCoin >= 50)
+        if (currentCoin >= winCollectCoin)
         {
             winScreen.SetActive(true);
             gameUIPanel.SetActive(false);
