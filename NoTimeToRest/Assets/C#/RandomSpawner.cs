@@ -6,9 +6,9 @@ public class RandomSpawner : MonoBehaviour
 {
     public GameObject[] prefabsToSpawn; // Array to hold multiple prefabs
     public float spawnRadius;
-    public int numberOfPrefabsToSpawn;
+    public int numberOfPrefabsToSpawn = 1;
     public float delayStart = 2f;
-    public float delaySpawn = 3f;
+    public float delaySpawn = 1f;
     public float delayBetweenTurrets = 0.2f;
     public int position_x = 6;
     public int position_z = 2;
@@ -29,7 +29,42 @@ public class RandomSpawner : MonoBehaviour
         // Start the spawning coroutine
         Invoke("StartSpawn", delayStart);
     }
-
+    void Update()
+    {
+        GameObject playerObject = GameObject.Find("Player");
+        PlayerController player = playerObject.GetComponent<PlayerController>();
+        if (player.percentCoin >= 5 && player.percentCoin <= 10)
+        {
+            numberOfPrefabsToSpawn = 3;
+            delaySpawn = 1.5f;
+        }
+        else if (player.percentCoin >= 11 && player.percentCoin <= 25)
+        {
+            numberOfPrefabsToSpawn = 5;
+            delaySpawn = 2f;
+        }
+        else if (player.percentCoin >= 26 && player.percentCoin <= 50)
+        {
+            numberOfPrefabsToSpawn = 7;
+            delaySpawn = 2.5f;
+        }
+        else if (player.percentCoin >= 51 && player.percentCoin <= 75)
+        {
+            numberOfPrefabsToSpawn = 9;
+            delaySpawn = 3f;
+        }
+        else if (player.percentCoin >= 76 && player.percentCoin <= 90)
+        {
+            numberOfPrefabsToSpawn = 11;
+            delaySpawn = 2.5f;
+        }
+        else if (player.percentCoin >= 91 && player.percentCoin <= 100)
+        {
+            numberOfPrefabsToSpawn = 15;
+            delaySpawn = 1f;
+            delayBetweenTurrets = 0.1f;
+        }
+    }
     void StartSpawn()
     {
         StartCoroutine(SpawnPrefabsRepeatedly());

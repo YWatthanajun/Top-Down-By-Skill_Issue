@@ -133,13 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9ec77847d72474d9f8b2d27b061fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2396339367991266885, guid: a309db1a2444284499708d7ba6155067, type: 3}
+  bulletPrefab: {fileID: 6109579530251467676, guid: cc7b545cfce3d174ab5b0e92df65f16f, type: 3}
   firePoint: {fileID: 8825820176641926339}
   fireRate: 1
   bulletSpeed: 15
   DelayShoot: 0.3
   selfDestructDelay: 2.6
-  bulletCount: 5
+  bulletCount: 10
 --- !u!114 &7558993507329971310
 MonoBehaviour:
   m_ObjectHideFlags: 0

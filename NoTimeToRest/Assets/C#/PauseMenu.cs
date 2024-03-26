@@ -12,7 +12,9 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        GameObject playerObject = GameObject.Find("Player");
+        PlayerController player = playerObject.GetComponent<PlayerController>();
+        if (Input.GetKeyDown(KeyCode.Escape) && !player.checkPlayerisDead)
         {
             if (isPaused)
                 Resume();

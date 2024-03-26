@@ -28,5 +28,6 @@ public class TargetPlayer : MonoBehaviour
             // Apply the rotation to this GameObject
             transform.rotation = rotation;
         }
+
     }
 }

@@ -38,16 +38,20 @@ public class Turret02 : MonoBehaviour
             // Calculate the rotation offset for this bullet
             Quaternion bulletRotation = Quaternion.Euler(0f, angleBetweenBullets * i, 0f);
 
-            // Apply the rotation offset to the start rotation
-            Quaternion finalRotation = startRotation * bulletRotation;
+            // Calculate the position offset for this bullet
+            Vector3 bulletPositionOffset = new Vector3(Mathf.Sin(Mathf.Deg2Rad * i * angleBetweenBullets), 0f, Mathf.Cos(Mathf.Deg2Rad * i * angleBetweenBullets));
 
-            // Fire the bullet with the final rotation
-            FireBulletSpread(finalRotation);
+            // Apply the rotation and position offsets to the start rotation and position
+            Quaternion finalRotation = startRotation * bulletRotation;
+            Vector3 finalPosition = firePoint.position + bulletPositionOffset;
+
+            // Fire the bullet with the final rotation and position
+            FireBulletSpread(finalRotation, finalPosition);
         }
     }
-    void FireBulletSpread(Quaternion rotation)
+    void FireBulletSpread(Quaternion rotation, Vector3 position)
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, position, rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.velocity = firePoint.forward * bulletSpeed;
     }

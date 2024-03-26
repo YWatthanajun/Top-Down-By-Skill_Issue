@@ -12,9 +12,10 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed;
     public float dashCooldown;
     public int maxShieldHealth = 100;
-    public int winCollectCoin = 50;
+    public int winCollectCoin;
     public int currentShieldHealth;
     public int currentCoin;
+    public int percentCoin;
     private bool isInShield = true;
     public int maxHealth = 100;
     public int currentHealth;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool isInvulnerable;
     private bool isImmortal = false;
     private bool isImmortalValue = false;
+    public bool checkPlayerisDead = false;
 
     public bool IsDashing => isDashing;
     public bool IsInShield => isInShield;
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         shieldHealth.text = "Current Shield : " + currentShieldHealth;
         Health.text = "Current Health : " + currentHealth;
         Coin.text = "Coin : " + currentCoin + "  /  " + winCollectCoin;
+        percentCoin = ((currentCoin*100) / winCollectCoin) ;
 
         if (currentCoin >= winCollectCoin)
         {
@@ -220,6 +223,7 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
+        checkPlayerisDead = true;
         if (audioBackgroundSource != null)
         {
             audioSource.Pause();
