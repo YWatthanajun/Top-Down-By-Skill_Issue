@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     private float damageCooldownTimer;
     private bool isDashing;
     private bool isInvulnerable;
+    private bool isImmortal = false;
+    private bool isImmortalValue = false;
+
     public bool IsDashing => isDashing;
     public bool IsInShield => isInShield;
 
@@ -91,7 +94,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Update damage cooldown timer
-        if (isInvulnerable)
+        if (isInvulnerable && !isImmortal)
         {
             damageCooldownTimer -= Time.deltaTime;
             if (damageCooldownTimer <= 0f)
@@ -244,6 +247,23 @@ public class PlayerController : MonoBehaviour
             // Set the game object's scale back to its original value to make it reappear
             this.transform.localScale = new Vector3(1, 1, 1);
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+    public void Invulnerable()
+    {
+        if (isImmortalValue)
+        {
+            Debug.Log("(Immortal = off)");
+            isInvulnerable = false;
+            isImmortal = false;
+            isImmortalValue = false;
+        }
+        else 
+        {
+            Debug.Log("(Immortal = on)");
+            isInvulnerable = true;
+            isImmortal = true;
+            isImmortalValue = true;
         }
     }
 }
