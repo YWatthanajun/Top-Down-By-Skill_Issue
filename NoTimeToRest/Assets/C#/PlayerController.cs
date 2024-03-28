@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.Playables;
 
 public class PlayerController : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioBackgroundSource;
     private int soundwin = 0;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
         shieldHealth.text = "Current Shield : " + currentShieldHealth;
         Health.text = "Current Health : " + currentHealth;
         Coin.text = "Coin : " + currentCoin + "  /  " + winCollectCoin;
-        percentCoin = ((currentCoin*100) / winCollectCoin) ;
+        percentCoin = ((currentCoin * 100) / winCollectCoin);
 
         if (currentCoin >= winCollectCoin)
         {
@@ -109,7 +111,9 @@ public class PlayerController : MonoBehaviour
         {
             isInShield = true;
         }
-                
+
+
+
     }
 
     public void movePlayer()
@@ -133,6 +137,12 @@ public class PlayerController : MonoBehaviour
     {
         // Get the world position of the cursor
         Vector3 cursorWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mainCamera.transform.position.y));
+
+        // Check if gameOverPanel or winScreen is active
+        if (gameOverPanel.activeSelf || winScreen.activeSelf)
+        {
+            return;
+        }
 
         // Calculate the direction vector from the player to the cursor
         Vector3 lookDirection = cursorWorldPosition - transform.position;
@@ -242,17 +252,38 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator BlinkPlayer()
     {
-        for (int i = 0; i < 15; i++) // Increase the number of iterations to 15 for a total of 1.5 seconds
+        GameObject playerTrail = GameObject.FindGameObjectWithTag("PlayerTrail");
+        if (playerTrail != null)
         {
-            // Set the game object's scale to zero to make it disappear
-            this.transform.localScale = new Vector3(0, 0, 0);
-            yield return new WaitForSeconds(0.1f);
+            bool previousEnabledState = playerTrail.activeSelf;
+            for (int i = 0; i < 15; i++)
+            {
+                // Set the game object's scale to zero to make it disappear
+                this.transform.localScale = new Vector3(0, 0, 0);
+                playerTrail.SetActive(false);
+                yield return new WaitForSeconds(0.1f);
 
-            // Set the game object's scale back to its original value to make it reappear
-            this.transform.localScale = new Vector3(1, 1, 1);
-            yield return new WaitForSeconds(0.1f);
+                // Set the game object's scale back to its original value to make it reappear
+                this.transform.localScale = new Vector3(1, 1, 1);
+                playerTrail.SetActive(previousEnabledState);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                // Set the game object's scale to zero to make it disappear
+                this.transform.localScale = new Vector3(0, 0, 0);
+                yield return new WaitForSeconds(0.1f);
+
+                // Set the game object's scale back to its original value to make it reappear
+                this.transform.localScale = new Vector3(1, 1, 1);
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
+
     public void Invulnerable()
     {
         if (isImmortalValue)
@@ -262,7 +293,7 @@ public class PlayerController : MonoBehaviour
             isImmortal = false;
             isImmortalValue = false;
         }
-        else 
+        else
         {
             Debug.Log("(Immortal = on)");
             isInvulnerable = true;
