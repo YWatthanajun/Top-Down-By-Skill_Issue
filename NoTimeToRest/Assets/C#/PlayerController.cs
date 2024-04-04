@@ -46,7 +46,17 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioBackgroundSource;
     private int soundwin = 0;
 
+    public PlayableDirector DeathCutscenedirector;
+    public float cutsceneDuration = 6f;
+    public GameObject DeathcutsceneCamera;
 
+    public PlayableDirector WinCutscenedirector;
+    public float WincutsceneDuration = 6f;
+    public GameObject WincutsceneCamera;
+    public GameObject WincutsceneCamera01;
+    public GameObject WincutsceneGameObject;
+
+    public GameObject EnemySpawner;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -95,7 +105,10 @@ public class PlayerController : MonoBehaviour
             }
             winScreen.SetActive(true);
             gameUIPanel.SetActive(false);
-            Time.timeScale = 0f;
+
+            WinCutscenedirector.Play();
+
+            StartCoroutine(PlayWinCutscene());
         }
 
         // Update damage cooldown timer
@@ -114,6 +127,24 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+
+    IEnumerator PlayWinCutscene()
+    {
+        // Set the time scale to 1
+        Time.timeScale = 1f;
+
+        // Wait for the cutscene duration
+        yield return new WaitForSecondsRealtime(WincutsceneDuration);
+
+        // Set the time scale back to 0
+        Time.timeScale = 0f;
+
+        // Set the cutscene camera's parent to inactive
+        WincutsceneCamera.SetActive(false);
+        WincutsceneCamera01.SetActive(false);
+        WincutsceneGameObject.SetActive(false);
+        EnemySpawner.SetActive(false);
     }
 
     public void movePlayer()
@@ -244,10 +275,28 @@ public class PlayerController : MonoBehaviour
         // Display the game over panel
         gameOverPanel.SetActive(true);
         gameUIPanel.SetActive(false);
-        // Stop time
+
+        // Play the cutscene
+        DeathCutscenedirector.Play();
+
+        // Start the coroutine to play the cutscene
+        StartCoroutine(PlayCutscene());
+    }
+
+    IEnumerator PlayCutscene()
+    {
+        // Set the time scale to 1
+        Time.timeScale = 1f;
+
+        // Wait for the cutscene duration
+        yield return new WaitForSecondsRealtime(cutsceneDuration);
+
+        // Set the time scale back to 0
         Time.timeScale = 0f;
 
-        // Optionally, you can also add code to save the game progress, show the final score, or restart the game
+        // Set the cutscene camera's parent to inactive
+        DeathcutsceneCamera.SetActive(false);
+        EnemySpawner.SetActive(false);
     }
 
     IEnumerator BlinkPlayer()

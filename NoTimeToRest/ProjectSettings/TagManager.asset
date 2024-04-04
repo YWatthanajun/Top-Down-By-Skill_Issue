@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - PlayerTrail
+  - DeathCutsceneTimeline
   layers:
   - Default
   - TransparentFX
