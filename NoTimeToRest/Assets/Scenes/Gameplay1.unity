@@ -26859,7 +26859,7 @@ MonoBehaviour:
   shieldHealth: {fileID: 1778111743}
   Health: {fileID: 2041295391}
   Coin: {fileID: 1327467979}
-  checkPlayerisDead: 1
+  noPause: 0
   gameOverPanel: {fileID: 511546761}
   gameUIPanel: {fileID: 414501974}
   winScreen: {fileID: 343997199}

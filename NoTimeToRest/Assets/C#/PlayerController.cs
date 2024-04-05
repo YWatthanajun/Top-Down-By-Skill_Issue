@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool isInvulnerable;
     private bool isImmortal = false;
     private bool isImmortalValue = false;
-    public bool checkPlayerisDead = false;
+    public bool noPause = false;
 
     public bool IsDashing => isDashing;
     public bool IsInShield => isInShield;
@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
                 soundwin++;
                 SoundManager2.instance.audioSoundSource.PlayOneShot(SoundManager2.instance.winSound);
             }
+            noPause = true;
             winScreen.SetActive(true);
             gameUIPanel.SetActive(false);
             EndGame();
@@ -251,6 +252,7 @@ public class PlayerController : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
+                noPause = true;
                 GameOver();
             }
             isInvulnerable = true;
@@ -262,7 +264,7 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
-        checkPlayerisDead = true;
+        noPause = true;
         if (audioBackgroundSource != null)
         {
             audioSource.Pause();
