@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameUIPanel;
     public GameObject winScreen;
+    public GameObject SpawnManager;
 
     public AudioSource audioSource;
     public AudioSource audioBackgroundSource;
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
             }
             winScreen.SetActive(true);
             gameUIPanel.SetActive(false);
-
+            EndGame();
             WinCutscenedirector.Play();
 
             StartCoroutine(PlayWinCutscene());
@@ -124,9 +125,6 @@ public class PlayerController : MonoBehaviour
         {
             isInShield = true;
         }
-
-
-
     }
 
     IEnumerator PlayWinCutscene()
@@ -275,10 +273,10 @@ public class PlayerController : MonoBehaviour
         // Display the game over panel
         gameOverPanel.SetActive(true);
         gameUIPanel.SetActive(false);
-
+        Time.timeScale = 0f;
         // Play the cutscene
+        EndGame();
         DeathCutscenedirector.Play();
-
         // Start the coroutine to play the cutscene
         StartCoroutine(PlayCutscene());
     }
@@ -348,6 +346,37 @@ public class PlayerController : MonoBehaviour
             isInvulnerable = true;
             isImmortal = true;
             isImmortalValue = true;
+        }
+    }
+    public void EndGame()
+    {
+        SpawnManager.SetActive(false);
+        // Find all GameObjects with the "Bullet" tag and destroy them
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bullets)
+        {
+            Destroy(bullet);
+        }
+
+        // Find all GameObjects with the "Turret" tag and destroy them
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
+        foreach (GameObject turret in turrets)
+        {
+            Destroy(turret);
+        }
+
+        // Find all GameObjects with the "Coin" tag and destroy them
+        GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+        foreach (GameObject coin in coins)
+        {
+            Destroy(coin);
+        }
+
+        // Find all GameObjects with the "Shield" tag and destroy them
+        GameObject[] shields = GameObject.FindGameObjectsWithTag("Shield");
+        foreach (GameObject shield in shields)
+        {
+            Destroy(shield);
         }
     }
 }

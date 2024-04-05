@@ -19,9 +19,27 @@ public class GameManagerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
-    public void Retry()
+    public void Retry1()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Gameplay1");
+        if (audioBackgroundSource != null)
+        {
+            audioSource.UnPause();
+            audioBackgroundSource.UnPause();
+        }
+    }
+    public void Retry2()
+    {
+        SceneManager.LoadScene("Gameplay2");
+        if (audioBackgroundSource != null)
+        {
+            audioSource.UnPause();
+            audioBackgroundSource.UnPause();
+        }
+    }
+    public void Retry3()
+    {
+        SceneManager.LoadScene("Gameplay3");
         if (audioBackgroundSource != null)
         {
             audioSource.UnPause();
