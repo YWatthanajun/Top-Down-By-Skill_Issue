@@ -18,3 +18,16 @@ UiSkill
 cooldownturret 
 spawning 
 pattern
+
+[6/4/2567] - Final Update
+
+- 3 Game mode Difficulity
+- New Tutorial
+- sound effect
+- Music
+- Game Difficulity adjust
+- Bug fixing
+- Bullet pattern adjust
+- Debug Mode
+- Dead Cutscene
+- Win Cutscene
