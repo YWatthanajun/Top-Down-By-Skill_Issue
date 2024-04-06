@@ -38,6 +38,11 @@ public class Cheat : MonoBehaviour
             // Call the function
             immortal();
         }
+        if (inputString.Contains("5"))
+        {
+            // Call the function
+            win();
+        }
         if (inputString.Contains("f"))
         {
             // Call the function
@@ -71,6 +76,13 @@ public class Cheat : MonoBehaviour
         GameObject playerObject = GameObject.Find("Player");
         PlayerController player = playerObject.GetComponent<PlayerController>();
         player.Invulnerable();
+    }
+    void win()
+    {
+        Debug.Log("(Player is Death)");
+        GameObject playerObject = GameObject.Find("Player");
+        PlayerController player = playerObject.GetComponent<PlayerController>();
+        player.currentCoin = 150;
     }
     void death()
     {

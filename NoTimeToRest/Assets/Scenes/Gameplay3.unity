@@ -4894,6 +4894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5987061681254603601, guid: baa26b06c31c71f49b60ba77311fb013, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6109579530251467676, guid: baa26b06c31c71f49b60ba77311fb013, type: 3}
       propertyPath: m_Name
       value: Bullet04
@@ -4901,6 +4905,10 @@ PrefabInstance:
     - target: {fileID: 6109579530251467676, guid: baa26b06c31c71f49b60ba77311fb013, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109579530251467676, guid: baa26b06c31c71f49b60ba77311fb013, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9081485359627710229, guid: baa26b06c31c71f49b60ba77311fb013, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13951,6 +13959,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5987061681254603601, guid: 895e702369be48d4281317af8ba4b562, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6109579530251467676, guid: 895e702369be48d4281317af8ba4b562, type: 3}
       propertyPath: m_Name
       value: Bullet03
@@ -13958,6 +13970,10 @@ PrefabInstance:
     - target: {fileID: 6109579530251467676, guid: 895e702369be48d4281317af8ba4b562, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109579530251467676, guid: 895e702369be48d4281317af8ba4b562, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9081485359627710229, guid: 895e702369be48d4281317af8ba4b562, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23101,6 +23117,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5987061681254603601, guid: cc7b545cfce3d174ab5b0e92df65f16f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6109579530251467676, guid: cc7b545cfce3d174ab5b0e92df65f16f, type: 3}
       propertyPath: m_Name
       value: Bullet02
@@ -23108,6 +23128,10 @@ PrefabInstance:
     - target: {fileID: 6109579530251467676, guid: cc7b545cfce3d174ab5b0e92df65f16f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109579530251467676, guid: cc7b545cfce3d174ab5b0e92df65f16f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9081485359627710229, guid: cc7b545cfce3d174ab5b0e92df65f16f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24012,6 +24036,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5987061681254603601, guid: c14fe404f5bfd0e4ea57da05bdb2c7d1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6109579530251467676, guid: c14fe404f5bfd0e4ea57da05bdb2c7d1, type: 3}
       propertyPath: m_Name
       value: Bullet01
@@ -24019,6 +24047,10 @@ PrefabInstance:
     - target: {fileID: 6109579530251467676, guid: c14fe404f5bfd0e4ea57da05bdb2c7d1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109579530251467676, guid: c14fe404f5bfd0e4ea57da05bdb2c7d1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9081485359627710229, guid: c14fe404f5bfd0e4ea57da05bdb2c7d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26859,7 +26891,7 @@ MonoBehaviour:
   shieldHealth: {fileID: 1778111743}
   Health: {fileID: 2041295391}
   Coin: {fileID: 1327467979}
-  checkPlayerisDead: 1
+  noPause: 0
   gameOverPanel: {fileID: 511546761}
   gameUIPanel: {fileID: 414501974}
   winScreen: {fileID: 343997199}
@@ -27411,7 +27443,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: fa4fa9ba6ea43ce468cba4d0aeda0e83, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3e22754c5deb4f04aae6bfae00228a06, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 855181705ec9efa4e8c0055116539800, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -30247,10 +30279,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabsToSpawn:
-  - {fileID: 3669257500895490330, guid: b4cb03d32b4d0de46916899adf99232f, type: 3}
-  - {fileID: 474246351295331839, guid: ee4121c818e5a2142be5cc50b554f8e7, type: 3}
-  - {fileID: 15720025554455407, guid: 83be9f79ee6ba524a8312ed0aac5023a, type: 3}
-  - {fileID: 4861212400193889997, guid: 186d21f524b1acb4d87e81141aba208c, type: 3}
+  - {fileID: 3669257500895490330, guid: 16fa128acb738124c86d25bf5e19f273, type: 3}
+  - {fileID: 474246351295331839, guid: df27932a0ce68c449afdbf4d844c6b65, type: 3}
+  - {fileID: 15720025554455407, guid: 1f486560aadbea449af978a0e1d3ba68, type: 3}
+  - {fileID: 4861212400193889997, guid: ba1607688b767b24b86b2edcc6dd4d29, type: 3}
   spawnRadius: 18
   numberOfPrefabsToSpawn: 1
   delayStart: 5
@@ -30291,7 +30323,7 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 5107686810080731156, guid: 767c716d9dcb15f4ba029994d4cc2fab, type: 3}
   spawnAreaSize: {x: 399, y: 0, z: 399}
   maxNumberOfPrefabsToSpawn: 100
-  spawnCooldown: 3
+  spawnCooldown: 4
   currentSpawnCount: 0
 --- !u!114 &2067104674
 MonoBehaviour:
@@ -30307,10 +30339,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 8914970154011045729, guid: 655c8014eb8bb1446bb89c286d217adc, type: 3}
   spawnAreaSize: {x: 399, y: 0, z: 399}
-  maxNumberOfPrefabsToSpawn: 500
+  maxNumberOfPrefabsToSpawn: 1500
   spawnCooldown: 30
   currentSpawnCount: 0
-  coinsToSpawnAtOnce: 250
+  coinsToSpawnAtOnce: 150
 --- !u!1001 &2068682289
 PrefabInstance:
   m_ObjectHideFlags: 0

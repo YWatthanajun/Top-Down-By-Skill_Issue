@@ -44,6 +44,18 @@ public class Bullet : MonoBehaviour
         }
         else if (!other.CompareTag("Bullet"))
         {
+
+        }
+        else if (!other.CompareTag("Coin"))
+        {
+
+        }
+        else if (!other.CompareTag("Shield"))
+        {
+
+        }
+        else
+        {
             Destroy(gameObject); // Destroy the bullet if it collides with something other than the player or another bullet
         }
     }

@@ -30339,7 +30339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 8914970154011045729, guid: 655c8014eb8bb1446bb89c286d217adc, type: 3}
   spawnAreaSize: {x: 399, y: 0, z: 399}
-  maxNumberOfPrefabsToSpawn: 2000
+  maxNumberOfPrefabsToSpawn: 1000
   spawnCooldown: 15
   currentSpawnCount: 0
   coinsToSpawnAtOnce: 200
